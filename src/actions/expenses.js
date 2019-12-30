@@ -16,13 +16,13 @@ export const startAddExpense = (expenseData = {}) => {
             createdAt=0
         } = expenseData;
         const expense = {description, note, amount, createdAt};
-        database.ref('expenses').push(expense).then((ref)=>{
+        return database.ref('expenses').push(expense).then((ref)=>{
             dispatch(addExpense({
                 id: ref.key,
                 ...expense
             }));
         })
-    }
+    };
 }
 
 export const removeExpense = ({id}) => ({
