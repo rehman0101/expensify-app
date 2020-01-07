@@ -5,6 +5,7 @@ import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import { startSetExpenses } from './actions/expenses';
 import { login, logout } from './actions/auth';
+import LoadingPage from './components/LoadingPage';
 import 'normalize.css/normalize.css';
 import 'react-dates/lib/css/_datepicker.css';
 import './styles/style.scss';
@@ -27,7 +28,7 @@ const renderApp = () => {
     }
 }
 
-ReactDOM.render(<h3>Loading...</h3>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user)=>{
     if(user){
